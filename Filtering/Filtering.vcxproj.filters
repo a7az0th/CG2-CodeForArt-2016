@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{b4e6b9e1-354d-42b4-9793-72a28b45c499}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{7812bf80-8ddd-47d0-b7e8-f85f446ad571}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernels">
+      <UniqueIdentifier>{dbaecdcd-6fc0-4742-a7e1-190d664802b8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\filtering.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\image.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cudaFilter.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Color.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpuFilter.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Color.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\demoFilters.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\image.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\filtering.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="cuda\utils.cuh">
+      <Filter>Kernels</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="cuda\kernel.cu">
+      <Filter>Kernels</Filter>
+    </CudaCompile>
+  </ItemGroup>
+</Project>
