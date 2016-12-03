@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wxApp", "CG2_Demo\CG2_Demo.vcxproj", "{0ABE15D5-570F-45B7-959B-AC2707DCE7A2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wxApp", "cg2_demo\CG2_Demo.vcxproj", "{0ABE15D5-570F-45B7-959B-AC2707DCE7A2}"
 	ProjectSection(ProjectDependencies) = postProject
 		{478B8B45-E69E-4DA4-9886-F86B6ACFA0E2} = {478B8B45-E69E-4DA4-9886-F86B6ACFA0E2}
 	EndProjectSection
