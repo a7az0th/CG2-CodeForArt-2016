@@ -3,9 +3,6 @@ setlocal
 @set GENERATOR=0
 @set RUNTIME=0
 
-@set SOURCE_DIR="D:\cg2\CG2-CodeForArt-2016_2"
-
-
 @if %GENERATOR%==0 (
 	if not "%VS140COMNTOOLS%"=="" (
 		set GENERATOR="Visual Studio 14 2015 Win64"
@@ -35,6 +32,6 @@ setlocal
 @del /f /s /q %BUILD_DIR%
 @cd %BUILD_DIR%
 
-cmake %SOURCE_DIR% -G %GENERATOR% -T %RUNTIME% 
+cmake ../ -G %GENERATOR% -T %RUNTIME% 
 endlocal
 @pause
