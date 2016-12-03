@@ -4,6 +4,13 @@ project (cg2_Demo)
 
 set(CMAKE_VERBOSE_MAKEFILE on)   
 
+#Used throughout the projects to search the sdk for the proper libs
+set (PLATFORM x86)
+string(FIND ${CMAKE_GENERATOR} Win64 position)
+if (NOT (${position} EQUAL "-1"))
+       set(PLATFORM x64)
+endif()
+
 if(CMAKE_CONFIGURATION_TYPES)      
   set(CMAKE_CONFIGURATION_TYPES Debug Release)
   set(CMAKE_CONFIGURATION_TYPES "${CMAKE_CONFIGURATION_TYPES}" CACHE STRING "Reset the configurations to what we need" FORCE)
