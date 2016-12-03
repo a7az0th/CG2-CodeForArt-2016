@@ -35,7 +35,7 @@ If everything was set up properly and no errors occur, inside the ***CG2demo_Bui
 Open it with Visual Studio and hit `F7`.
 
 `NOTE` CMake sets the default startup project to ALL_BUILD. If you want to run your program from Visual Studio, set the default project to *cg2_demo*.
-
+`NOTE` It is possible that your solution does not compile on the first try and complain for not being able to find **demoFilters.h** . In this case just hit F7 again.
 # Enjoy!
 
 You can send your questions to a7az0th@gmail.com
