@@ -1,13 +1,14 @@
 #include "image.h"
 #include "FreeImage.h"
-#include "assert.h"
+#include <assert.h>
+#include <algorithm>
 
 typedef unsigned long long uint64;
 
 namespace CG2 {
 
 template<typename T>
-inline int clamp(const T& val, const T& minVal, const T& maxVal) { return std::min(std::max(val, minVal), maxVal); }
+inline T clamp(const T& val, const T& minVal, const T& maxVal) { return std::min(std::max(val, minVal), maxVal); }
 
 #ifdef _WIN32
 	static const char slashSymbol = '\\';
@@ -180,9 +181,9 @@ int Image::save(const std::string & fileName) const {
 
 	for (int i = 0; i < height*width; i++) {
 		Color& col = data[i];
-		pixel_data->rgbtRed   = clamp(col.f.f[0], 0.0f, 1.0f) * 255.f;
-		pixel_data->rgbtGreen = clamp(col.f.f[1], 0.0f, 1.0f) * 255.f;
-		pixel_data->rgbtBlue  = clamp(col.f.f[2], 0.0f, 1.0f) * 255.f;
+		pixel_data->rgbtRed   = static_cast<BYTE>(clamp(col.f.f[0], 0.0f, 1.0f) * 255.f);
+		pixel_data->rgbtGreen = static_cast<BYTE>(clamp(col.f.f[1], 0.0f, 1.0f) * 255.f);
+		pixel_data->rgbtBlue  = static_cast<BYTE>(clamp(col.f.f[2], 0.0f, 1.0f) * 255.f);
 		pixel_data++;
 	}
 

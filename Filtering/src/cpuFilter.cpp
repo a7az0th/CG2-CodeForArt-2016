@@ -1,6 +1,7 @@
 #include "image.h"
 #include "filtering.h"
 #include <vector>
+#include <algorithm>
 
 /// If defined CPU rendering will utilize the precalculated buckets
 /// This optimizes CPU rendering with ~15%
@@ -89,7 +90,7 @@ int filterWithCPU(uint32 *buffer, const Image& image, const float *kernel, int n
 	const std::vector<Rect>& tiles = imageTiles;
 
 #pragma omp parallel for
-	for (int t = 0; t < tiles.size(); t++) {
+	for (int t = 0; t < (int)tiles.size(); t++) {
 		const Rect & tile = tiles[t];
 		for (int y = tile.y0; y < tile.y1; y++) {
 			for (int x = tile.x0; x < tile.x1; x++) {

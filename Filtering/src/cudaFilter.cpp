@@ -2,6 +2,8 @@
 #include "demoFilters.h"
 #include "filtering.h"
 
+#if defined(ALLOW_CUDA)
+
 #include <cuda_runtime.h>
 #include <cuda_gl_interop.h>
 
@@ -106,7 +108,7 @@ int deinitCuda() {
 /// @param nbhd Radius of the kernel
 int filterWithCUDA(int imgWidth, int imgHeight, const float *kernel, int nbhd) {
 
-cudaError_t err = cudaSuccess;
+	cudaError_t err = cudaSuccess;
 
 	size_t size = SQR(KERNEL_SIZE(nbhd))*sizeof(float);
 	err = cudaMemcpy(kernelBuf, kernel, size, cudaMemcpyHostToDevice);
@@ -120,6 +122,8 @@ cudaError_t err = cudaSuccess;
 	checkError(err);
 
 	runCudaKernel(destBuf, imgBuf, imgWidth, imgHeight, kernelBuf, nbhd);
+	err = cudaPeekAtLastError();
+	checkError(err);
 
 	err = cudaDeviceSynchronize();
 	checkError(err);
@@ -153,4 +157,21 @@ cudaError_t getDeviceInfo(const int deviceId, DeviceInfo & devInfo)
 	return res;
 }
 
+} //namespace CG2
+
+
+#else
+namespace CG2 {
+
+int initCuda(uint32 glBuffer, DeviceInfo &devInfo) {
+	memset(&devInfo, 0, sizeof(DeviceInfo));
+	return -1;
 }
+int deinitCuda() { return -1; }
+int resizeCudaBuffer(size_t size) { return -1; }
+int remapCudaBuffer(uint32 glBuffer) { return -1; }
+int uploadCudaBuffer(void* buffer, size_t size) { return -1; };
+int filterWithCUDA(int imgWidth, int imgHeight, const float *kernel, int nbhd) { return -1; }
+
+}
+#endif
