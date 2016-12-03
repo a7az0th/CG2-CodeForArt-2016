@@ -6,7 +6,6 @@ if (CUDA_FOUND)
 	# Pass options to NVCC
 	set(CUDA_NVCC_FLAGS_DEBUG ${CUDA_NVCC_FLAGS_DEBUG} -O0 -G -lineinfo)
 	set(CUDA_NVCC_FLAGS_RELEASE ${CUDA_NVCC_FLAGS_RELEASE} -O3)
-	#set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS}; -gencode arch=compute_50,code=sm_50 -DALLOW_CUDA)
 	set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS} -DALLOW_CUDA")
 	#You may need to explicitly specify the CC of your card here
 	

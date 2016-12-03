@@ -3,13 +3,6 @@ cmake_minimum_required (VERSION 3.7)
 project (cg2_Demo)
 
 set(CMAKE_VERBOSE_MAKEFILE on)   
-#set(CMAKE_BUILD_TYPE Release)
-
-set (PLATFORM x86)
-string(FIND ${CMAKE_GENERATOR} Win64 position)
-if (NOT (${position} EQUAL "-1"))
-	set(PLATFORM x64)
-endif()
 
 if(CMAKE_CONFIGURATION_TYPES)      
   set(CMAKE_CONFIGURATION_TYPES Debug Release)
@@ -19,8 +12,8 @@ endif()
 set(SDK_PATH ${CMAKE_SOURCE_DIR}/sdk)
 find_package(wxWidgets REQUIRED gl core base)
 
-set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_CRT_SECURE_NO_WARNINGS=1")
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_CRT_SECURE_NO_WARNINGS=1")
+set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_CRT_SECURE_NO_WARNINGS=1 -D_UNICODE -DUNICODE")
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_CRT_SECURE_NO_WARNINGS=1 -D_UNICODE -DUNICODE")
 
 find_package(OpenMP)
 if (OPENMP_FOUND)
@@ -29,7 +22,6 @@ if (OPENMP_FOUND)
 endif()
 
 find_package(CUDA)
-
 if (CUDA_FOUND) 
 	# Tell our C++ compiler to compile the CUDA stuff
 	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DALLOW_CUDA")
