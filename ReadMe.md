@@ -16,10 +16,10 @@ ___
 Before this demo can be run, there are a few prereqisites:
  - MS Windows
  - NVidia GPU
- - [wxWidgets] (Tested with 3.10)
- - [CUDA Toolkit] (Tested with CUDA 7.5)
- - [CMake] v3.7 or later
- - Visual Studio 2010 or later (CUDA 7.5 does not support vc14. CUDA 8.0 does)
+ - [wxWidgets] | Tested with 3.10
+ - [CUDA Toolkit] | Tested with CUDA 7.5
+ - [CMake] | v3.7 or later
+ - Visual Studio 2010 or later | CUDA 7.5 does not support vc14. CUDA 8.0 does
 
 Click on the links provided and download and install the latest versions.
 `NOTE` After setting up wxWidgets, make sure there is a WXWIN env var set with the location where wxWidgets is installed.
